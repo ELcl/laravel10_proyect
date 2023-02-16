@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use App\Http\Controllers\CursoController;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('auth/login');
 });
 
 // Cursos
@@ -33,7 +35,18 @@ Route::get('/curso/{curso}/editar', [CursoController::class, 'edit'])->name('cur
 Route::patch('/curso/{curso}', [CursoController::class, 'update'])->name('curso.update');
 //Eliminar
 Route::delete('/curso/{curso}', [CursoController::class, 'destroy'])->name('curso.destroy');
+/********************************************/
 
+//AUTH
+Route::view('/register' , 'auth.register')->name('register');
+
+Route::post('/register', [UserController::class, 'store'])->name('register');
+
+Route::view('/login' , 'auth.login')->name('login');
+
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
     /*Route::controller(CursoController::class)->group(function () {
         Route::get('/curso', 'index');
         Route::get('/curso/new', 'create');

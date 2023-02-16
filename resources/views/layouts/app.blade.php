@@ -3,12 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Aplicacion - @yield('titulo')</title>
+	<title>Aplicacion</title>
 </head>
 <body>
-		@include('layouts.nav')
+
 	<h1>
-		Cursos
+		@yield('titulo')
 	</h1>
 
 	@yield('content')

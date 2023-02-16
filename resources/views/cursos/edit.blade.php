@@ -1,5 +1,9 @@
 @extends('layouts.app')
+@include('layouts.nav')
 
+@section('titulo')
+	Editar
+@endsection
 @section('content')
 
 	<form method="post" action="{{route('curso.update', $curso)}}">

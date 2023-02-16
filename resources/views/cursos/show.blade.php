@@ -1,12 +1,18 @@
 @extends('layouts.app')
+@include('layouts.nav')
+
+@section('titulo')
+
+	<a href="{{route('curso.edit', $curso)}}">{{$curso['nombre']}}</a>
+@endsection
 
 @section('content')
-	<ul>
-		<li>
-			<p><a href="{{route('curso.edit', $curso)}}">{{$curso['nombre']}}</a></p>
-			<small>{{$curso['area']}}</small>
-		</li>
-	</ul>
+
+			<p>
+			{{$curso['area']}}
+			</p>
+
+
 	<form method="post" action="{{route('curso.destroy', $curso)}}">
 		@csrf
 		@method('DELETE')

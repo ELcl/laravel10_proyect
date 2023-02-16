@@ -1,5 +1,9 @@
 @extends('layouts.app')
+@include('layouts.nav')
 
+@section('titulo')
+	Nuevo Curso
+@endsection
 @section('content')
 
 	<form method="post" action="{{route('curso.store')}}">

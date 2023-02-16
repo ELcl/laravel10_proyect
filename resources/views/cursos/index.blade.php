@@ -1,5 +1,9 @@
 @extends('layouts.app')
+@include('layouts.nav')
 
+@section('titulo')
+	Cursos
+@endsection
 @section('content')
 
 	<ul>
